@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script type="module" src="assets/js/dltmsg.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Dashboard Comment Box</title>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 min-h-screen py-10">
+<script>
+  const urlKey = new URLSearchParams(window.location.search).get("key");
+  const SECRET_KEY = "FTR-ADMIN-KEY-88a02hA91";
+
+  if (urlKey !== SECRET_KEY) {
+    document.body.innerHTML = `
+      <div class="flex items-center justify-center h-screen bg-gray-900">
+        <h1 class="text-white text-2xl font-bold">
+          ❌ Unauthorized Access
+        </h1>
+      </div>`;
+  }
+</script>
+
+  <!-- Container -->
+  <div class="max-w-6xl mx-auto px-4">
+
+    <!-- Page Title -->
+    <div class="mb-8 text-center">
+      <h1 class="text-3xl font-extrabold text-gray-800 dark:text-white tracking-wide">
+        Comment Management
+      </h1>
+      <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
+        Review and delete visitor comments
+      </p>
+    </div>
+
+    <!-- Table Wrapper -->
+    <div class="rounded-2xl overflow-hidden shadow-xl 
+                bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+          
+          <!-- Table Head -->
+          <thead class="bg-gray-100 dark:bg-gray-700/50">
+            <tr>
+              <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-200">
+                Name
+              </th>
+              <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-200">
+                Message
+              </th>
+              <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-200">
+                Time
+              </th>
+              <th class="px-4 py-3 text-center text-sm font-semibold text-gray-700 dark:text-gray-200">
+                Action
+              </th>
+            </tr>
+          </thead>
+
+          <!-- Table Body -->
+          <tbody id="commentTable" 
+                 class="divide-y divide-gray-200 dark:divide-gray-700">
+
+            <!-- EXAMPLE STATIC ROW (remove after Firebase integration) -->
+            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/40 transition">
+              <td class="px-4 py-3 text-gray-800 dark:text-gray-100 font-medium">
+                Ahmad
+              </td>
+              <td class="px-4 py-3 text-gray-600 dark:text-gray-300">
+                Haloo
+              </td>
+              <td class="px-4 py-3 text-gray-500 dark:text-gray-400 text-sm">
+                04/06/1262 21.22
+              </td>
+              <td class="px-4 py-3 text-center">
+                <button 
+                  class="px-3 py-1 rounded-lg text-sm font-semibold
+                         bg-red-600 hover:bg-red-700 text-white shadow 
+                         transition">
+                  Delete
+                </button>
+              </td>
+            </tr>
+            <!-- END SAMPLE -->
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

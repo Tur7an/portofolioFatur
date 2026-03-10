@@ -1,0 +1,1456 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script> document.documentElement.classList.add("dark");</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              poppins: ['Poppins', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="vanilla-tilt.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Portofolio Fatur</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+  </head>
+  <body class="min-h-screen transition-all duration-500
+            bg-gradient-to-b from-[#0a0f33] to-[#000000]
+            text-white
+            dark:bg-gradient-to-b dark:from-gray-200 dark:to-gray-200
+            dark:text-black">
+    <!-- Section Navbar -->
+    <header class="fixed top-3 left-0 w-full flex justify-center px-4 z-50"
+                  data-aos="fade-down" data-aos-duration="800" data-aos-offset="0" >
+        <div
+        class=" backdrop-blur-xl bg-white/10 dark:bg-white/10
+        border border-white/20 
+        px-4 sm:px-8 md:px-10 py-3 
+        rounded-full shadow-[0_20px_40px_rgba(0,0,0,0.4)]
+        w-full max-w-2xl md:max-w-4xl
+        transition-all duration-300">
+
+        <div class="flex items-center justify-between">
+
+        <!-- Hamburger Menu (Mobile) -->
+        <button id="mobileMenuBtn"
+          class="md:hidden p-2 rounded-full bg-white/20 border border-white/30 
+                hover:bg-white/30 transition text-white dark:text-black text-xl">
+          <i class="bi bi-list"></i>
+        </button>
+
+
+        <nav class="hidden md:block">
+            <ul class="flex items-center gap-8 font-medium">
+            <li><a href="#hero" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#certificates" class="nav-link">Certificates</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+
+        <button 
+            id="themeToggle"
+            class="p-2 rounded-full bg-white/20 border border-white/30 hover:bg-white/30 transition">
+            <i class="bi bi-moon-stars text-xl"></i>
+        </button>
+        </div>
+    </div>
+    </header>
+
+    <!-- Mobile Menu Sidebar -->
+    <div id="mobileMenu"
+      class="fixed top-0 right-0 h-full w-[70%] max-w-[280px]
+            bg-white/10 dark:bg-black/20 backdrop-blur-xl
+            border-l border-white/20 dark:border-black/20
+            shadow-xl z-[9999]
+            translate-x-full transition-all duration-500">
+
+      <div class="p-6 space-y-6">
+
+        <!-- Close Button -->
+        <button id="closeMobileMenu"
+          class="text-white dark:text-black text-3xl">
+          &times;
+        </button>
+
+        <!-- Menu Items -->
+        <nav>
+          <ul class="space-y-5 text-lg font-semibold">
+            <li><a href="#hero" class="mobile-link">Home</a></li>
+            <li><a href="#about" class="mobile-link">About</a></li>
+            <li><a href="#skills" class="mobile-link">Skills</a></li>
+            <li><a href="#projects" class="mobile-link">Projects</a></li>
+            <li><a href="#certificates" class="mobile-link">Certificates</a></li>
+            <li><a href="#contact" class="mobile-link">Contact</a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+    </div>
+    <!-- End Section Navbar -->
+    
+    <!-- Section Hero -->
+    <section id="hero" class="pt-36 pb-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <div class="grid grid-cols-2 gap-8 items-center"
+        data-aos="fade-up" data-aos-duration="900" data-aos-offset="120">
+
+          <div class="space-y-4 pr-3"
+                data-aos="fade-right" data-aos-duration="900">
+
+            <h1 class="text-3xl sm:text-5xl font-bold text-white dark:text-black leading-tight">
+              I'm
+            </h1>
+
+            <h1 class="text-3xl sm:text-5xl font-bold text-blue-700 dark:text-blue-700 leading-tight">
+              <span id="displayName">Fatur</span>
+            </h1>
+
+            <button 
+              id="fullnameBadge"
+              class="text-xs px-3 py-1 rounded-full 
+                    bg-white/20 backdrop-blur-md border border-white/30
+                    text-white dark:text-black dark:bg-black/10 dark:border-black/20
+                    hover:bg-white/30 dark:hover:bg-black/20
+                    transition tilt-item">
+              Fullname
+            </button>
+
+            <p class="text-sm sm:text-lg text-white/80 dark:text-gray-600 font-bold">
+              <span id="typed-text"></span>
+            </p>
+
+            <div class="inline-flex rounded-xl overflow-hidden shadow-xl">
+            <a href="#" id="btnHireMe"
+              class="whitespace-nowrap px-4 py-2 sm:px-6 sm:py-3 font-semibold 
+                    bg-white/20 text-white border-r border-white/30 backdrop-blur-md
+                    hover:bg-white/30 transition dark:bg-black/10
+                    dark:text-black dark:border-black/20 dark:hover:bg-black/20
+                    tilt-item text-[10px] sm:text-sm">
+              Hire Me
+            </a>
+
+            <a href="#" target="_blank" id="btnLinkedIn"
+              class="px-4 py-2 sm:px-6 sm:py-3 font-semibold 
+                    bg-blue-700 text-white hover:bg-blue-600 transition
+                    dark:bg-blue-700 dark:hover:bg-blue-700 tilt-item
+                    text-xs sm:text-sm">
+              LinkedIn
+            </a>
+          </div>
+          </div>
+
+          <div class="flex justify-end tilt-item"
+          data-tilt data-tilt-reset="false">
+
+            <img 
+              src="assets/img/hero-img.png"
+              alt="Hero Image"
+              class="w-[95%] sm:w-[85%] md:w-[75%]
+                    hover:scale-[1.02] transition-all duration-500 rounded-3xl">
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End Section Hero -->
+
+    <!-- Section About -->
+    <section id="about" class="pt-20 lg:pt-32 pb-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+
+          <div class="hidden lg:flex justify-center lg:justify-start"
+          data-aos="fade-right" data-aos-duration="900" data-aos-offset="150">
+            <div class="tilt-wrapper w-fit">
+              <img 
+                src="assets/img/about-img.png" 
+                alt="About Image"
+                class="w-56 sm:w-64 lg:w-72 rounded-3xl"
+              />
+            </div>
+          </div>
+
+          <div class="lg:col-span-2 space-y-4"
+          data-aos="fade-left" data-aos-duration="900" data-aos-offset="150">
+
+            <div class="flex items-center justify-between">
+              <h3 class="text-3xl font-bold text-white dark:text-black">About Me</h3>
+
+              <button 
+                id="aboutTranslate"
+                class="p-2 rounded-full border border-white/30 text-white
+                      hover:bg-white/20 transition
+                      dark:border-black/20 dark:text-black dark:hover:bg-black/10
+                      bi bi-translate tilt-item text-lg cursor-pointer">
+              </button>
+            </div>
+
+            <p id="aboutEn" 
+              class="text-white/80 dark:text-gray-700 leading-relaxed text-justify transition-all duration-300">
+              Hello, my name is Faturrahman Ardiansyah, a Junior Web Developer passionate about
+              learning and improving my skills in web development. I am committed to creating
+              effective digital solutions, understanding user needs, and delivering the best results
+              in every project. With a structured and collaborative approach, I am ready to contribute
+              positively through my dedication and expertise.
+            </p>
+
+            <p id="aboutId" 
+              class="hidden opacity-0 text-white/80 dark:text-gray-700 leading-relaxed text-justify transition-all duration-300">
+              Halo, nama saya Faturrahman Ardiansyah, seorang Junior Web Developer yang memiliki
+              ketertarikan besar dalam belajar dan mengembangkan keterampilan di bidang
+              pengembangan web. Saya berkomitmen untuk menciptakan solusi digital yang efektif,
+              memahami kebutuhan pengguna, dan memberikan hasil terbaik di setiap proyek.
+              Dengan pendekatan yang terstruktur dan kolaboratif, saya siap memberikan kontribusi
+              positif melalui dedikasi dan kemampuan saya.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Section About -->
+
+    <!-- Section Skills -->
+    <section id="skills" class="pt-20 lg:pt-32 pb-20"">
+      <div class="text-center mb-12" data-aos="fade-up" data-aos-duration="800">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white dark:text-black">
+          Skills
+        </h2>
+      </div>
+
+      <div class="max-w-6xl mx-auto grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 
+                  gap-10 place-items-center px-4">
+
+        <div class="skill-box" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100"><i class="fa-brands fa-html5 skill-icon"></i></div>
+        <div class="skill-box" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100"><i class="fa-brands fa-css3-alt skill-icon"></i></div>
+        <div class="skill-box" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100"><i class="fa-brands fa-js skill-icon"></i></div>
+        <div class="skill-box" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100"><i class="fa-brands fa-php skill-icon"></i></div>
+        <div class="skill-box" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100"><i class="fa-brands fa-python skill-icon"></i></div>
+        <div class="skill-box" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100"><i class="fa-brands fa-java skill-icon"></i></div>
+        <div class="skill-box" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100"><i class="fa-brands fa-bootstrap skill-icon"></i></div>
+        <div class="skill-box" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">
+          <img src="assets/img/tailwind.svg" class="skill-icon-img icon-base-blue" alt="Tailwind Icon">
+        </div>
+        <div class="skill-box" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100"><i class="fa-brands fa-laravel skill-icon"></i></div>
+        <div class="skill-box" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">
+          <img src="assets/img/mysql.svg" class="skill-icon-img skill-svg" alt="MySQL Icon">
+        </div>
+        <div class="skill-box" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">
+          <img src="assets/img/firebase.svg" class="skill-icon-img skill-svg" alt="Firebase Icon">
+        </div>
+        <div class="skill-box" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100"><i class="fa-brands fa-github skill-icon"></i></div>
+
+      </div>
+    </section>
+    <!-- End Section Skills -->
+
+    <!-- Section Projects -->
+    <section id="projects" class="pt-28 pb-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-12" data-aos="fade-up" data-aos-duration="800">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white dark:text-black">
+            Latest Project
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div class="group relative rounded-3xl overflow-hidden
+                      border border-white/10 dark:border-black/10 transition-all duration-500 hover:scale-[1.02]"
+                      data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
+
+            <img src="assets/img/bantusesama.png" class="w-full h-64 object-cover" />
+
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+              <h3 class="text-white text-base font-semibold">Bantu Sesama</h3>
+            </div>
+
+            <div class="absolute inset-0 flex flex-col justify-end p-5 opacity-0
+                        group-hover:opacity-100 bg-black/70 backdrop-blur-md
+                        transition-all duration-500">
+
+              <h3 class="text-white text-lg font-bold mb-2">Bantu Sesama</h3>
+              <p class="text-white/80 text-sm mb-4 leading-relaxed">
+                Website donasi online terintegrasi Midtrans, memudahkan pengguna berdonasi dengan cepat dan aman.
+              </p>
+
+              <a href="https://github.com/Tur7an?tab=repositories" target="_blank" class="inline-block bg-white text-black font-semibold text-sm px-4 py-2 rounded-full shadow hover:bg-gray-200 transition">
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="group relative rounded-3xl overflow-hidden
+                      border border-white/10 dark:border-black/10 transition-all duration-500 hover:scale-[1.02]"
+                      data-aos="fade-up" data-aos-duration="900" data-aos-delay="200">
+
+            <img src="assets/img/washwes.png" class="w-full h-64 object-cover" />
+
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+              <h3 class="text-white text-base font-semibold">Wash Wes</h3>
+            </div>
+
+            <div class="absolute inset-0 flex flex-col justify-end p-5 opacity-0
+                        group-hover:opacity-100 bg-black/70 backdrop-blur-md
+                        transition-all duration-500">
+
+              <h3 class="text-white text-lg font-bold mb-2">Wash Wes</h3>
+              <p class="text-white/80 text-sm mb-4 leading-relaxed">
+                Sistem manajemen laundry yang mengatur transaksi, stok, dan operasional laundry secara menyeluruh.
+              </p>
+
+              <a href="https://github.com/Tur7an?tab=repositories" target="_blank" class="inline-block bg-white text-black font-semibold text-sm px-4 py-2 rounded-full shadow hover:bg-gray-200 transition">
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="group relative rounded-3xl overflow-hidden
+                      border border-white/10 dark:border-black/10 transition-all duration-500 hover:scale-[1.02]"
+                      data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">
+
+            <img src="assets/img/e-commerce.png" class="w-full h-64 object-cover" />
+
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+              <h3 class="text-white text-base font-semibold">E-Commerce Website</h3>
+            </div>
+
+            <div class="absolute inset-0 flex flex-col justify-end p-5 opacity-0
+                        group-hover:opacity-100 bg-black/70 backdrop-blur-md
+                        transition-all duration-500">
+              <h3 class="text-white text-lg font-bold mb-2">E-Commerce Website</h3>
+              <p class="text-white/80 text-sm mb-4 leading-relaxed">
+                Platform pemesanan produk dengan fitur keranjang, checkout, dan manajemen pesanan.
+              </p>
+
+              <a href="https://github.com/Tur7an?tab=repositories" target="_blank" class="inline-block bg-white text-black font-semibold text-sm px-4 py-2 rounded-full shadow hover:bg-gray-200 transition">
+                GitHub
+              </a>
+            </div>
+          </div>
+
+
+          <div class="group relative rounded-3xl overflow-hidden
+                      border border-white/10 dark:border-black/10 transition-all duration-500 hover:scale-[1.02]"
+                      data-aos="fade-up" data-aos-duration="900" data-aos-delay="400">
+
+            <img src="assets/img/pekansabtu.png" class="w-full h-64 object-cover" />
+
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+              <h3 class="text-white text-base font-semibold">Company Profile Kelurahan</h3>
+            </div>
+
+            <div class="absolute inset-0 flex flex-col justify-end p-5 opacity-0
+                        group-hover:opacity-100 bg-black/70 backdrop-blur-md
+                        transition-all duration-500">
+
+              <h3 class="text-white text-lg font-bold mb-2">Company Profile Kelurahan</h3>
+              <p class="text-white/80 text-sm mb-4 leading-relaxed">
+                Website informasi kelurahan yang menampilkan profil, kegiatan, serta panduan pengurusan dokumen warga.
+              </p>
+
+              <a href="https://github.com/Tur7an?tab=repositories" target="_blank" class="inline-block bg-white text-black font-semibold text-sm px-4 py-2 rounded-full shadow hover:bg-gray-200 transition">
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="group relative rounded-3xl overflow-hidden
+                      border border-white/10 dark:border-black/10 transition-all duration-500 hover:scale-[1.02]"
+                      data-aos="fade-up" data-aos-duration="900" data-aos-delay="500">
+
+            <img src="assets/img/muslifa.png" class="w-full h-64 object-cover" />
+
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+              <h3 class="text-white text-base font-semibold">Sistem Informasi Paud</h3>
+            </div>
+
+            <div class="absolute inset-0 flex flex-col justify-end p-5 opacity-0
+                        group-hover:opacity-100 bg-black/70 backdrop-blur-md
+                        transition-all duration-500">
+
+              <h3 class="text-white text-lg font-bold mb-2">Sistem Informasi Paud</h3>
+              <p class="text-white/80 text-sm mb-4 leading-relaxed">
+                Website informasi PAUD yang dilengkapi fitur PPDB online saat periode pendaftaran dibuka.
+              </p>
+
+              <a href="https://github.com/Tur7an?tab=repositories" target="_blank" class="inline-block bg-white text-black font-semibold text-sm px-4 py-2 rounded-full shadow hover:bg-gray-200 transition">
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="group relative rounded-3xl overflow-hidden
+                      border border-white/10 dark:border-black/10 transition-all duration-500 hover:scale-[1.02]"
+                      data-aos="fade-up" data-aos-duration="900" data-aos-delay="600">
+
+            <img src="assets/img/bkerjo.png" class="w-full h-64 object-cover" />
+
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+              <h3 class="text-white text-base font-semibold">BKerjo.com</h3>
+            </div>
+
+            <div class="absolute inset-0 flex flex-col justify-end p-5 opacity-0
+                        group-hover:opacity-100 bg-black/70 backdrop-blur-md
+                        transition-all duration-500">
+
+              <h3 class="text-white text-lg font-bold mb-2">BKerjo.com</h3>
+              <p class="text-white/80 text-sm mb-4 leading-relaxed">
+                Portal berita dan lowongan kerja Bengkulu yang dibangun menggunakan WordPress.
+              </p>
+
+              <a href="https://github.com/Tur7an?tab=repositories" target="_blank" class="inline-block bg-white text-black font-semibold text-sm px-4 py-2 rounded-full shadow hover:bg-gray-200 transition">
+                GitHub
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- End Section Projects -->
+
+    <!-- Section Certificates -->
+    <section id="certificates" class="pt-28 pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-12" data-aos="fade-up" data-aos-duration="800">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white dark:text-black">
+            Certificates
+          </h2>
+        </div>
+      <div
+        class="relative rounded-3xl p-8 mb-14 flex items-center gap-8 group
+              bg-gradient-to-br from-[#1C2D78] via-[#243B8A] to-[#162260]
+              border border-blue-300/20 dark:border-blue-200/20
+              backdrop-blur-xl
+              transition-all duration-500
+              hover:scale-[1.02] hover:shadow-[0_0_20px_6px_rgba(71,112,255,0.35)]"
+              data-aos="zoom-in" data-aos-duration="900">
+
+        <div class="absolute inset-0 rounded-3xl 
+                    bg-blue-400/20 blur-2xl opacity-0
+                    group-hover:opacity-100 transition duration-500"></div>
+
+        <div class="relative z-10 flex items-center gap-8">
+
+          <div class="w-28 h-28 rounded-full bg-white/95 
+                      flex items-center justify-center
+                      shadow-[0_0_25px_rgba(255,255,255,0.35)]
+                      ring-4 ring-blue-300/30">
+
+            <img 
+              src="assets/img/bnsp.png" 
+              alt="Logo BNSP"
+              class="w-20 h-20 object-contain rounded-full"
+              data-aos="flip-left" data-aos-duration="1200" data-aos-delay="600"/>
+          </div>
+
+          <div class="flex-1">
+            <h3 class="text-3xl font-extrabold text-white drop-shadow-sm">
+              Sertifikat Kompetensi BNSP
+            </h3>
+
+            <p class="text-white/90 font-medium mt-1 tracking-wide">
+              Junior Web Developer — Badan Nasional Sertifikasi Profesi
+            </p>
+
+            <button onclick="openModal('bnspCert')"
+              class="mt-4 px-5 py-2.5 text-sm font-semibold rounded-full
+                    bg-white/20 text-white backdrop-blur-md
+                    border border-white/30 
+                    hover:bg-white/50
+                    transition">
+              View Certificate
+            </button>
+          </div>
+      </div>
+    </div>
+
+    <!-- Main Certificates -->
+    <div id="mainCerts" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+
+      <div
+        class="relative group p-6 rounded-2xl
+              w-full min-h-[220px] 
+              bg-white/10 dark:bg-blue-900/10 
+              border border-white/20 dark:border-black/20 
+              backdrop-blur-md 
+              transition-all duration-500 
+              hover:scale-[1.02]"
+              data-aos="fade-up"
+              data-aos-duration="900"
+              data-aos-delay="100">
+
+        <div class="absolute inset-0 rounded-2xl 
+                    bg-blue-500/30 dark:bg-blue-400/20 
+                    blur-2xl opacity-0 
+                    group-hover:opacity-100 
+                    transition duration-500">
+        </div>
+
+        <div class="relative z-10 text-center">
+            <div class="w-20 h-20 bg-white rounded-full mx-auto flex justify-center items-center mb-4">
+                <img 
+                    src="assets/img/nfacademy.png" 
+                    alt="Logo NF"
+                    class="w-12 h-12 object-contain"/>
+            </div>
+
+            <h6 class="text-gray-300 dark:text-blue-900 text-sm font-medium mb-1">
+                NF Academy
+            </h6>
+
+            <h4 class="text-white dark:text-blue-900 font-semibold text-lg">
+                Full Stack Web Developer
+            </h4>
+        </div>
+
+        <button 
+          onclick="openModal('nfCert')"
+          class="absolute bottom-3 right-3 
+                px-4 py-2 text-xs font-semibold
+                bg-blue/30 dark:bg-blue/20 
+                backdrop-blur-md 
+                border border-white/20 dark:border-black/20
+                text-white dark:text-black 
+                rounded-xl 
+                hover:bg-white/40 dark:hover:bg-black/30 
+                transition">
+          View
+        </button>
+      </div>
+
+      <div
+        class="relative group p-6 rounded-2xl 
+              bg-white/10 dark:bg-blue-900/10 
+              border border-white/20 dark:border-black/20 
+              backdrop-blur-md 
+              transition-all duration-500 
+              hover:scale-[1.02]"
+              data-aos="fade-up"
+              data-aos-duration="900"
+              data-aos-delay="100">
+
+        <div class="absolute inset-0 rounded-2xl 
+                    bg-blue-500/30 dark:bg-blue-400/20 
+                    blur-2xl opacity-0 
+                    group-hover:opacity-100 
+                    transition duration-500">
+        </div>
+
+        <div class="relative z-10 text-center">
+            <div class="w-20 h-20 bg-white rounded-full mx-auto flex justify-center items-center mb-4">
+                <img 
+                    src="assets/img/afd.jpg" 
+                    alt="Logo NF"
+                    class="w-12 h-12 object-contain"/>
+            </div>
+
+            <h6 class="text-gray-300 dark:text-blue-900 text-sm font-medium mb-1">
+                PT. Analis Forensik Digital
+            </h6>
+
+            <h4 class="text-white dark:text-blue-900 font-semibold text-lg">
+                Analis Forensik Digital
+            </h4>
+        </div>
+
+        <button 
+          onclick="openModal('afdCert')"
+          class="absolute bottom-3 right-3 
+                px-4 py-2 text-xs font-semibold
+                bg-blue/30 dark:bg-blue/20 
+                backdrop-blur-md 
+                border border-white/20 dark:border-black/20
+                text-white dark:text-black 
+                rounded-xl 
+                hover:bg-white/40 dark:hover:bg-black/30 
+                transition">
+          View
+        </button>
+      </div>
+
+      <div
+        class="relative group p-6 rounded-2xl 
+              bg-white/10 dark:bg-blue-900/10 
+              border border-white/20 dark:border-black/20 
+              backdrop-blur-md 
+              transition-all duration-500 
+              hover:scale-[1.02]"
+              data-aos="fade-up"
+              data-aos-duration="900"
+              data-aos-delay="100">
+
+        <div class="absolute inset-0 rounded-2xl 
+                    bg-blue-500/30 dark:bg-blue-400/20 
+                    blur-2xl opacity-0 
+                    group-hover:opacity-100 
+                    transition duration-500">
+        </div>
+
+        <div class="relative z-10 text-center">
+            <div class="w-20 h-20 bg-white rounded-full mx-auto flex justify-center items-center mb-4">
+                <img 
+                    src="assets/img/msib.png" 
+                    alt="Logo NF"
+                    class="w-14 h-14 object-contain"/>
+            </div>
+
+            <h6 class="text-gray-300 dark:text-blue-900 text-sm font-medium mb-1">
+                Kemendikbudristek
+            </h6>
+
+            <h4 class="text-white dark:text-blue-900 font-semibold text-lg">
+                MSIB Batch 6 & 7
+            </h4>
+        </div>
+
+        <button 
+          onclick="openModal('msibCert')"
+          class="absolute bottom-3 right-3 
+                px-4 py-2 text-xs font-semibold
+                bg-blue/30 dark:bg-blue/20 
+                backdrop-blur-md 
+                border border-white/20 dark:border-black/20
+                text-white dark:text-black 
+                rounded-xl 
+                hover:bg-white/40 dark:hover:bg-black/30 
+                transition">
+          View
+        </button>
+      </div>
+
+    </div>
+
+    <div id="showBtnWrapper" class="text-center mb-10">
+      <button id="toggleCertificates"
+        class="px-6 py-3 bg-white/20 dark:bg-blue/10 border border-white/30 dark:border-black/30 
+              text-white dark:text-blue-900 rounded-full hover:bg-white/30 dark:hover:bg-black/5 transition text-[13px] font-semibold">
+        More Certificates
+      </button>
+    </div>
+
+    <!-- Extra Certificates -->
+    <div id="extraWrapper"
+        class="opacity-0 max-h-0 overflow-hidden transition-all duration-700">
+
+      <div id="extraCerts"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+
+        <div
+          class="relative group p-6 rounded-2xl
+                w-full min-h-[180px]
+                bg-white/10 dark:bg-blue-900/10 
+                border border-white/20 dark:border-black/20 
+                backdrop-blur-md 
+                transition-all duration-500 
+                hover:scale-[1.02] z-20"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+                data-aos-delay="100">
+
+          <div class="absolute inset-[3px] rounded-2xl 
+                      bg-blue-500/30 dark:bg-blue-400/20 
+                      blur-2xl opacity-0 
+                      group-hover:opacity-100 
+                      pointer-events-none
+                      transition duration-500">
+          </div>
+
+          <div class="relative z-10 text-center">
+            <div class="w-12 h-12 bg-white rounded-full mx-auto flex justify-center items-center mb-4">
+              <img src="assets/img/dicoding.jpg" class="w-8 h-8 object-contain"/>
+            </div>
+
+            <h6 class="text-gray-300 dark:text-blue-900 text-xs font-medium mb-1">Dicoding</h6>
+
+            <h4 class="text-white dark:text-blue-900 font-semibold text-sm">
+              Programming Logic 101
+            </h4>
+          </div>
+
+          <button onclick="openModal('dicoding1')"
+            class="absolute bottom-3 right-3 
+                  px-3 py-1 text-xs font-semibold
+                  bg-gray-500/30 dark:bg-gray-400/20
+                  backdrop-blur-md 
+                  border border-white/20 dark:border-black/20
+                  text-white dark:text-black 
+                  rounded-xl 
+                  hover:bg-white/40 dark:hover:bg-black/30 
+                  transition">
+            View
+          </button>
+        </div>
+        <div
+          class="relative group p-6 rounded-2xl
+                w-full min-h-[180px]
+                bg-white/10 dark:bg-blue-900/10 
+                border border-white/20 dark:border-black/20 
+                backdrop-blur-md 
+                transition-all duration-500 
+                hover:scale-[1.02] z-20"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+                data-aos-delay="100">
+
+          <div class="absolute inset-[3px] rounded-2xl 
+                      bg-blue-500/30 dark:bg-blue-400/20 
+                      blur-2xl opacity-0 
+                      group-hover:opacity-100 
+                      pointer-events-none
+                      transition duration-500">
+          </div>
+
+          <div class="relative z-10 text-center">
+            <div class="w-12 h-12 bg-white rounded-full mx-auto flex justify-center items-center mb-4">
+              <img src="assets/img/dicoding.jpg" class="w-8 h-8 object-contain"/>
+            </div>
+
+            <h6 class="text-gray-300 dark:text-blue-900 text-xs font-medium mb-1">Dicoding</h6>
+
+            <h4 class="text-white dark:text-blue-900 font-semibold text-sm">
+              Pemrograman dengan Python
+            </h4>
+          </div>
+
+          <button onclick="openModal('dicoding2')"
+            class="absolute bottom-3 right-3 
+                  px-3 py-1 text-xs font-semibold
+                  bg-gray-500/30 dark:bg-gray-400/20
+                  backdrop-blur-md 
+                  border border-white/20 dark:border-black/20
+                  text-white dark:text-black 
+                  rounded-xl 
+                  hover:bg-white/40 dark:hover:bg-black/30 
+                  transition">
+            View
+          </button>
+        </div>
+        <div
+          class="relative group p-6 rounded-2xl
+                w-full min-h-[180px]
+                bg-white/10 dark:bg-blue-900/10 
+                border border-white/20 dark:border-black/20 
+                backdrop-blur-md 
+                transition-all duration-500 
+                hover:scale-[1.02] z-20"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+                data-aos-delay="100">
+
+          <div class="absolute inset-[3px] rounded-2xl 
+                      bg-blue-500/30 dark:bg-blue-400/20 
+                      blur-2xl opacity-0 
+                      group-hover:opacity-100 
+                      pointer-events-none
+                      transition duration-500">
+          </div>
+
+          <div class="relative z-10 text-center">
+            <div class="w-12 h-12 bg-white rounded-full mx-auto flex justify-center items-center mb-4">
+              <img src="assets/img/dicoding.jpg" class="w-8 h-8 object-contain"/>
+            </div>
+
+            <h6 class="text-gray-300 dark:text-blue-900 text-xs font-medium mb-1">Dicoding</h6>
+
+            <h4 class="text-white dark:text-blue-900 font-semibold text-sm">
+              Dasar Pemrograman untuk Menjadi Pengembang Software
+            </h4>
+          </div>
+
+          <button onclick="openModal('dicoding3')"
+            class="absolute bottom-3 right-3 
+                  px-3 py-1 text-xs font-semibold
+                  bg-gray-500/30 dark:bg-gray-400/20
+                  backdrop-blur-md 
+                  border border-white/20 dark:border-black/20
+                  text-white dark:text-black 
+                  rounded-xl 
+                  hover:bg-white/40 dark:hover:bg-black/30 
+                  transition">
+            View
+          </button>
+        </div>
+
+        <div
+          class="relative group p-6 rounded-2xl
+                w-full min-h-[180px]
+                bg-white/10 dark:bg-blue-900/10 
+                border border-white/20 dark:border-black/20 
+                backdrop-blur-md 
+                transition-all duration-500 
+                hover:scale-[1.02] z-20"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+                data-aos-delay="100">
+
+          <div class="absolute inset-[3px] rounded-2xl 
+                      bg-blue-500/30 dark:bg-blue-400/20 
+                      blur-2xl opacity-0 
+                      group-hover:opacity-100 
+                      pointer-events-none
+                      transition duration-500">
+          </div>
+
+          <div class="relative z-10 text-center">
+            <div class="w-12 h-12 bg-white rounded-full mx-auto flex justify-center items-center mb-4">
+              <img src="assets/img/dicoding.jpg" class="w-8 h-8 object-contain"/>
+            </div>
+
+            <h6 class="text-gray-300 dark:text-blue-900 text-xs font-medium mb-1">Dicoding</h6>
+
+            <h4 class="text-white dark:text-blue-900 font-semibold text-sm">
+              Belajar Dasar Git dengan GitHub
+            </h4>
+          </div>
+
+          <button onclick="openModal('dicoding4')"
+            class="absolute bottom-3 right-3 
+                  px-3 py-1 text-xs font-semibold
+                  bg-gray-500/30 dark:bg-gray-400/20
+                  backdrop-blur-md 
+                  border border-white/20 dark:border-black/20
+                  text-white dark:text-black 
+                  rounded-xl 
+                  hover:bg-white/40 dark:hover:bg-black/30 
+                  transition">
+            View
+          </button>
+        </div>
+
+        <div
+          class="relative group p-6 rounded-2xl
+                w-full min-h-[180px]
+                bg-white/10 dark:bg-blue-900/10 
+                border border-white/20 dark:border-black/20 
+                backdrop-blur-md 
+                transition-all duration-500 
+                hover:scale-[1.02] z-20"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+                data-aos-delay="100">
+
+          <div class="absolute inset-[3px] rounded-2xl 
+                      bg-blue-500/30 dark:bg-blue-400/20 
+                      blur-2xl opacity-0 
+                      group-hover:opacity-100 
+                      pointer-events-none
+                      transition duration-500">
+          </div>
+
+          <div class="relative z-10 text-center">
+            <div class="w-12 h-12 bg-white rounded-full mx-auto flex justify-center items-center mb-4">
+              <img src="assets/img/dicoding.jpg" class="w-8 h-8 object-contain"/>
+            </div>
+
+            <h6 class="text-gray-300 dark:text-blue-900 text-xs font-medium mb-1">Dicoding</h6>
+
+            <h4 class="text-white dark:text-blue-900 font-semibold text-sm">
+              Belajar Dasar AI
+            </h4>
+          </div>
+
+          <button onclick="openModal('dicoding5')"
+            class="absolute bottom-3 right-3 
+                  px-3 py-1 text-xs font-semibold
+                  bg-gray-500/30 dark:bg-gray-400/20
+                  backdrop-blur-md 
+                  border border-white/20 dark:border-black/20
+                  text-white dark:text-black 
+                  rounded-xl 
+                  hover:bg-white/40 dark:hover:bg-black/30 
+                  transition">
+            View
+          </button>
+        </div>
+
+        <div
+          class="relative group p-6 rounded-2xl
+                w-full min-h-[180px]
+                bg-white/10 dark:bg-blue-900/10 
+                border border-white/20 dark:border-black/20 
+                backdrop-blur-md 
+                transition-all duration-500 
+                hover:scale-[1.02] z-20"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+                data-aos-delay="100">
+
+          <div class="absolute inset-[3px] rounded-2xl 
+                      bg-blue-500/30 dark:bg-blue-400/20 
+                      blur-2xl opacity-0 
+                      group-hover:opacity-100 
+                      pointer-events-none
+                      transition duration-500">
+          </div>
+
+          <div class="relative z-10 text-center">
+            <div class="w-12 h-12 bg-white rounded-full mx-auto flex justify-center items-center mb-4">
+              <img src="assets/img/dicoding.jpg" class="w-8 h-8 object-contain"/>
+            </div>
+
+            <h6 class="text-gray-300 dark:text-blue-900 text-xs font-medium mb-1">Dicoding</h6>
+
+            <h4 class="text-white dark:text-blue-900 font-semibold text-sm">
+              Belajar Dasar Visualisasi Data
+            </h4>
+          </div>
+
+          <button onclick="openModal('dicoding6')"
+            class="absolute bottom-3 right-3 
+                  px-3 py-1 text-xs font-semibold
+                  bg-gray-500/30 dark:bg-gray-400/20
+                  backdrop-blur-md 
+                  border border-white/20 dark:border-black/20
+                  text-white dark:text-black 
+                  rounded-xl 
+                  hover:bg-white/40 dark:hover:bg-black/30 
+                  transition">
+            View
+          </button>
+        </div>
+        
+        <div
+          class="relative group p-6 rounded-2xl
+                w-full min-h-[180px]
+                bg-white/10 dark:bg-blue-900/10 
+                border border-white/20 dark:border-black/20 
+                backdrop-blur-md 
+                transition-all duration-500 
+                hover:scale-[1.02] z-20"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+                data-aos-delay="100">
+
+          <div class="absolute inset-[3px] rounded-2xl 
+                      bg-blue-500/30 dark:bg-blue-400/20 
+                      blur-2xl opacity-0 
+                      group-hover:opacity-100 
+                      pointer-events-none
+                      transition duration-500">
+          </div>
+
+          <div class="relative z-10 text-center">
+            <div class="w-12 h-12 bg-white rounded-full mx-auto flex justify-center items-center mb-4">
+              <img src="assets/img/myskill.png" class="w-8 h-8 object-contain"/>
+            </div>
+
+            <h6 class="text-gray-300 dark:text-blue-900 text-xs font-medium mb-1">MySkill</h6>
+
+            <h4 class="text-white dark:text-blue-900 font-semibold text-sm">
+              Wordpress Development
+            </h4>
+          </div>
+
+          <button onclick="openModal('myskillWp')"
+            class="absolute bottom-3 right-3 
+                  px-3 py-1 text-xs font-semibold
+                  bg-gray-500/30 dark:bg-gray-400/20
+                  backdrop-blur-md 
+                  border border-white/20 dark:border-black/20
+                  text-white dark:text-black 
+                  rounded-xl 
+                  hover:bg-white/40 dark:hover:bg-black/30 
+                  transition">
+            View
+          </button>
+        </div>
+        
+        <div
+          class="relative group p-6 rounded-2xl
+                w-full min-h-[180px]
+                bg-white/10 dark:bg-blue-900/10 
+                border border-white/20 dark:border-black/20 
+                backdrop-blur-md 
+                transition-all duration-500 
+                hover:scale-[1.02] z-20"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+                data-aos-delay="100">
+
+          <div class="absolute inset-[3px] rounded-2xl 
+                      bg-blue-500/30 dark:bg-blue-400/20 
+                      blur-2xl opacity-0 
+                      group-hover:opacity-100 
+                      pointer-events-none
+                      transition duration-500">
+          </div>
+
+          <div class="relative z-10 text-center">
+            <div class="w-12 h-12 bg-white rounded-full mx-auto flex justify-center items-center mb-4">
+              <img src="assets/img/myskill.png" class="w-8 h-8 object-contain"/>
+            </div>
+
+            <h6 class="text-gray-300 dark:text-blue-900 text-xs font-medium mb-1">MySkill</h6>
+
+            <h4 class="text-white dark:text-blue-900 font-semibold text-sm">
+              Microsoft Excel Basic
+            </h4>
+          </div>
+
+          <button onclick="openModal('myskillEx')"
+            class="absolute bottom-3 right-3 
+                  px-3 py-1 text-xs font-semibold
+                  bg-gray-500/30 dark:bg-gray-400/20
+                  backdrop-blur-md 
+                  border border-white/20 dark:border-black/20
+                  text-white dark:text-black 
+                  rounded-xl 
+                  hover:bg-white/40 dark:hover:bg-black/30 
+                  transition">
+            View
+          </button>
+        </div>
+        <div
+          class="relative group p-6 rounded-2xl
+                w-full min-h-[180px]
+                bg-white/10 dark:bg-blue-900/10 
+                border border-white/20 dark:border-black/20 
+                backdrop-blur-md 
+                transition-all duration-500 
+                hover:scale-[1.02] z-20"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+                data-aos-delay="100">
+
+          <div class="absolute inset-[3px] rounded-2xl 
+                      bg-blue-500/30 dark:bg-blue-400/20 
+                      blur-2xl opacity-0 
+                      group-hover:opacity-100 
+                      pointer-events-none
+                      transition duration-500">
+          </div>
+
+          <div class="relative z-10 text-center">
+            <div class="w-12 h-12 bg-white rounded-full mx-auto flex justify-center items-center mb-4">
+              <img src="assets/img/festika.jpg" class="w-8 h-8 object-contain"/>
+            </div>
+
+            <h6 class="text-gray-300 dark:text-blue-900 text-xs font-medium mb-1">Festika #</h6>
+
+            <h4 class="text-white dark:text-blue-900 font-semibold text-sm">
+              Lomba UI/UX Festika #7
+            </h4>
+          </div>
+
+          <button onclick="openModal('UIUX')"
+            class="absolute bottom-3 right-3 
+                  px-3 py-1 text-xs font-semibold
+                  bg-gray-500/30 dark:bg-gray-400/20
+                  backdrop-blur-md 
+                  border border-white/20 dark:border-black/20
+                  text-white dark:text-black 
+                  rounded-xl 
+                  hover:bg-white/40 dark:hover:bg-black/30 
+                  transition">
+            View
+          </button>
+        </div>
+        <div
+          class="relative group p-6 rounded-2xl
+                w-full min-h-[180px]
+                bg-white/10 dark:bg-blue-900/10 
+                border border-white/20 dark:border-black/20 
+                backdrop-blur-md 
+                transition-all duration-500 
+                hover:scale-[1.02] z-20"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+                data-aos-delay="100">
+
+          <div class="absolute inset-[3px] rounded-2xl 
+                      bg-blue-500/30 dark:bg-blue-400/20 
+                      blur-2xl opacity-0 
+                      group-hover:opacity-100 
+                      pointer-events-none
+                      transition duration-500">
+          </div>
+
+          <div class="relative z-10 text-center">
+            <div class="w-12 h-12 bg-white rounded-full mx-auto flex justify-center items-center mb-4">
+              <img src="assets/img/dilesin.png" class="w-8 h-8 object-contain"/>
+            </div>
+
+            <h6 class="text-gray-300 dark:text-blue-900 text-xs font-medium mb-1">Dilesin</h6>
+
+            <h4 class="text-white dark:text-blue-900 font-semibold text-sm">
+              Introduction to Filament in Laravel
+            </h4>
+          </div>
+
+          <button onclick="openModal('filDil')"
+            class="absolute bottom-3 right-3 
+                  px-3 py-1 text-xs font-semibold
+                  bg-gray-500/30 dark:bg-gray-400/20
+                  backdrop-blur-md 
+                  border border-white/20 dark:border-black/20
+                  text-white dark:text-black 
+                  rounded-xl 
+                  hover:bg-white/40 dark:hover:bg-black/30 
+                  transition">
+            View
+          </button>
+        </div>
+        <div
+          class="relative group p-6 rounded-2xl
+                w-full min-h-[180px]
+                bg-white/10 dark:bg-blue-900/10 
+                border border-white/20 dark:border-black/20 
+                backdrop-blur-md 
+                transition-all duration-500 
+                hover:scale-[1.02] z-20"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+                data-aos-delay="100">
+
+          <div class="absolute inset-[3px] rounded-2xl 
+                      bg-blue-500/30 dark:bg-blue-400/20 
+                      blur-2xl opacity-0 
+                      group-hover:opacity-100 
+                      pointer-events-none
+                      transition duration-500">
+          </div>
+
+          <div class="relative z-10 text-center">
+            <div class="w-12 h-12 bg-white rounded-full mx-auto flex justify-center items-center mb-4">
+              <img src="assets/img/duniacoding.jpeg" class="w-8 h-8 object-contain"/>
+            </div>
+
+            <h6 class="text-gray-300 dark:text-blue-900 text-xs font-medium mb-1">Dunia Coding</h6>
+
+            <h4 class="text-white dark:text-blue-900 font-semibold text-sm">
+              Workshop Responsive Bootstrap
+            </h4>
+          </div>
+
+          <button onclick="openModal('bootDC')"
+            class="absolute bottom-3 right-3 
+                  px-3 py-1 text-xs font-semibold
+                  bg-gray-500/30 dark:bg-gray-400/20
+                  backdrop-blur-md 
+                  border border-white/20 dark:border-black/20
+                  text-white dark:text-black 
+                  rounded-xl 
+                  hover:bg-white/40 dark:hover:bg-black/30 
+                  transition">
+            View
+          </button>
+        </div>
+        <div
+          class="relative group p-6 rounded-2xl
+                w-full min-h-[180px]
+                bg-white/10 dark:bg-blue-900/10 
+                border border-white/20 dark:border-black/20 
+                backdrop-blur-md 
+                transition-all duration-500 
+                hover:scale-[1.02] z-20"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+                data-aos-delay="100">
+
+          <div class="absolute inset-[3px] rounded-2xl 
+                      bg-blue-500/30 dark:bg-blue-400/20 
+                      blur-2xl opacity-0 
+                      group-hover:opacity-100 
+                      pointer-events-none
+                      transition duration-500">
+          </div>
+
+          <div class="relative z-10 text-center">
+            <div class="w-12 h-12 bg-white rounded-full mx-auto flex justify-center items-center mb-4">
+              <img src="assets/img/sinaucoding.png" class="w-8 h-8 object-contain"/>
+            </div>
+
+            <h6 class="text-gray-300 dark:text-blue-900 text-xs font-medium mb-1">Sinau Coding</h6>
+
+            <h4 class="text-white dark:text-blue-900 font-semibold text-sm">
+              Short Class Fullstack
+            </h4>
+          </div>
+
+          <button onclick="openModal('SC')"
+            class="absolute bottom-3 right-3 
+                  px-3 py-1 text-xs font-semibold
+                  bg-gray-500/30 dark:bg-gray-400/20
+                  backdrop-blur-md 
+                  border border-white/20 dark:border-black/20
+                  text-white dark:text-black 
+                  rounded-xl 
+                  hover:bg-white/40 dark:hover:bg-black/30 
+                  transition">
+            View
+          </button>
+        </div>
+
+      </div>
+
+      
+      <!-- BUTTON HIDE (SELALU POSISI PALING BAWAH) -->
+      <div class="text-center mb-10">
+        <button id="hideBtn"
+          class="px-6 py-3 bg-white/20 dark:bg-blue/10 border border-white/30 dark:border-black/30 
+           text-white dark:text-blue-900 rounded-full hover:bg-white/30 dark:hover:bg-black/5 transition text-[13px] font-semibold">
+          Hide
+        </button>
+      </div>
+
+    </div>
+    </section>
+    <!-- End Section Certificates -->
+
+    <!-- Section Contact -->
+    <section id="contact" class="pt-28 pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex justify-center items-center gap-5 mb-12" data-aos="fade-up" data-aos-duration="800">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white dark:text-black">
+            Contact
+          </h2>
+          <h2 class="text-xl sm:text-4xl font-bold text-blue-400 dark:text-blue-700">
+            Comment Box
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+          <div class="lg:col-span-2" data-aos="fade-right" data-aos-duration="900">
+            <div
+              class="p-8 rounded-3xl bg-white/10 dark:bg-black/10 
+                    backdrop-blur-xl border border-white/20 dark:border-black/20 transition">
+
+              <form id="contactForm" class="space-y-5">
+
+                <div>
+                  <label class="block text-white/80 dark:text-black font-medium mb-1">
+                    Name
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    class="w-full px-4 py-3 rounded-xl bg-white/10 dark:bg-black/10 
+                          border border-white/20 dark:border-black/20 
+                          text-white dark:text-black 
+                          placeholder-white/40 dark:placeholder-black/60
+                          focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    placeholder="Enter your name"
+                  />
+                </div>
+
+                <div>
+                  <label class="block text-white/80 dark:text-black font-medium mb-1">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    rows="5"
+                    class="w-full px-4 py-3 rounded-xl bg-white/10 dark:bg-black/10 
+                          border border-white/20 dark:border-black/20 
+                          text-white dark:text-black 
+                          placeholder-white/40 dark:placeholder-black/60
+                          resize-none focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    placeholder="Write your message"></textarea>
+                </div>
+
+                <div class="flex gap-4 pt-2">
+
+                  <button
+                    id="btnWhatsapp"
+                    type="button"
+                    class="flex-1 px-6 py-3 rounded-xl 
+                          bg-blue-700 hover:bg-blue-800 
+                          text-white font-semibold transition shadow-md">
+                    Send Message
+                  </button>
+
+                  <button
+                    id="btnComment"
+                    type="button"
+                    class="flex-1 px-6 py-3 rounded-xl 
+                          bg-white/10 dark:bg-black/20 
+                          border border-white/20 dark:border-black/20
+                          text-white dark:text-black 
+                          hover:bg-white/20 dark:hover:bg-black/30 
+                          font-semibold transition shadow-md">
+                    Send Comment
+                  </button>
+
+                </div>
+              </form>
+
+            </div>
+          </div>
+
+          <!-- CComment Box -->
+          <div data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
+
+            <div
+              class="mb-3 px-5 py-3 rounded-2xl 
+                    bg-white/10 dark:bg-black/20 
+                    backdrop-blur-xl 
+                    border border-white/20 dark:border-black/20
+                    shadow-md">
+              <h3 class="text-xs font-semibold text-white dark:text-black tracking-wide">
+                💬 Comment Box
+              </h3>
+            </div>
+
+            <div
+              class="p-6 rounded-3xl bg-white/5 dark:bg-black/10 
+                    backdrop-blur-xl border border-white/20 dark:border-black/20
+                    max-h-[370px] overflow-y-auto space-y-4"
+              id="commentBox">
+
+                <p class="text-white/40 dark:text-black/40 text-center text-sm">
+                  No comments yet...
+                </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer 
+      class="mt-24 relative overflow-hidden
+            bg-gradient-to-b from-transparent to-white/5 dark:to-black/10
+            backdrop-blur-2xl border-t border-white/10 dark:border-black/20
+            py-5">
+
+      <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div class="absolute -bottom-10 -left-16 w-60 h-60 bg-blue-500/20 dark:bg-blue-400/10 blur-3xl rounded-full"></div>
+        <div class="absolute -top-10 -right-16 w-60 h-60 bg-purple-500/20 dark:bg-purple-400/10 blur-3xl rounded-full"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+
+          <div class="flex items-center gap-7">
+
+            <a href="#" target="_blank"
+              class="text-white/80 dark:text-black/80 text-2xl 
+                      transition-all duration-300
+                      hover:text-white dark:hover:text-black
+                      hover:scale-125 hover:drop-shadow-[0_0_10px_rgba(0,153,255,0.8)]">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="#" target="_blank"
+              class="text-white/80 dark:text-black/80 text-2xl 
+                      transition-all duration-300
+                      hover:text-white dark:hover:text-black
+                      hover:scale-125 hover:drop-shadow-[0_0_12px_rgba(0,102,255,0.8)]">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+
+            <a href="#" target="_blank"
+              class="text-white/80 dark:text-black/80 text-2xl
+                      transition-all duration-300
+                      hover:text-white dark:hover:text-black
+                      hover:scale-125 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)]">
+              <i class="fa-brands fa-github"></i>
+            </a>
+
+          </div>
+
+          <p class="text-sm text-white/60 dark:text-black/60 tracking-wide">
+            © 2025 <span class="font-semibold">Faturrahman Ardiansyah</span> • All Rights Reserved.
+          </p>
+
+        </div>
+
+      </div>
+    </footer>
+
+    <button id="backToTop"
+      class="fixed bottom-6 right-6 z-[999999] p-4 rounded-full
+            bg-blue-800 text-white shadow-xl
+            hover:bg-blue-900
+            transition-all duration-300 
+            opacity-0 pointer-events-none
+            backdrop-blur-xl border border-white/20 dark:border-black/20">
+      <i class="bi bi-arrow-up text-xl"></i>
+    </button>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/vanilla.js"></script>  
+    <script src="assets/js/script.js"></script>
+    <script>
+    AOS.init({
+      duration: 900,
+      easing: "ease-out-quart",
+      once: false,
+      mirror: true,
+      offset: 80,
+      anchorPlacement: "top-bottom",
+    });
+    </script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyAiP_KP3qOxv8xWsDwICjnSRS2q9todigY",
+        authDomain: "portfolio-fatur.firebaseapp.com",
+        projectId: "portfolio-fatur",
+        storageBucket: "portfolio-fatur.firebasestorage.app",
+        messagingSenderId: "1032940271910",
+        appId: "1:1032940271910:web:e2029ab5083a4a7119a9e7",
+        measurementId: "G-ERZGKG9LXT"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+
+    <script src="assets/js/comment.js"></script>
+  </body>
+  <!-- MODAL OVERLAY -->
+  <div id="certModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden justify-center items-center z-[9999]">
+  <div class="bg-white dark:bg-black p-5 rounded-2xl max-w-3xl w-[90%] relative shadow-xl">
+
+    <!-- Close Button -->
+    <button class="absolute top-1 right-1 text-black font-bold dark:text-white text-xl"
+            onclick="closeModal()">&times;</button>
+
+    <!-- PDF Frame -->
+    <iframe id="certFrame" src="" class="w-full h-[500px] rounded-lg"></iframe>
+
+  </div>
+</div>
+
+</html>
